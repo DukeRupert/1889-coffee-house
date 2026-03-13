@@ -9,44 +9,19 @@ COPY . .
 RUN hugo --gc --minify --environment production
 
 # =============================================================================
-# Stage 2: Build Go API binary
+# Stage 2: Final image — Caddy + static files
 # =============================================================================
-FROM golang:1.23-alpine AS go-builder
-
-WORKDIR /build
-COPY api/go.mod api/go.sum* ./
-RUN go mod download 2>/dev/null || true
-
-COPY api/ .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -trimpath -ldflags="-s -w" -o contact-api .
-
-# =============================================================================
-# Stage 3: Final image — Caddy + static files + Go binary
-# =============================================================================
+# TODO: Add Go API build stage when api/ directory is created
 FROM caddy:2-alpine
 
 # Copy Hugo build output to Caddy's web root
 COPY --from=hugo-builder /src/public /srv
 
-# Copy Go binary
-COPY --from=go-builder /build/contact-api /usr/local/bin/contact-api
-
 # Copy Caddy configuration
 COPY Caddyfile /etc/caddy/Caddyfile
 
-# Copy and set entrypoint
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/contact-api
-
-# Environment variable defaults (can be overridden at runtime)
-ENV PORT=80 \
-    API_PORT=8080 \
-    ALLOWED_ORIGIN=https://www.1889coffeehouse.com
+ENV PORT=80
 
 EXPOSE 80
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD wget -qO- http://127.0.0.1:${PORT:-80}/api/health || exit 1
-
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
