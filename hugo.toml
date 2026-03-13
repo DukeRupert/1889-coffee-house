@@ -29,7 +29,7 @@ enableRobotsTXT = true
     instagram = "https://www.instagram.com/1889coffeehouse"
 
   [params.ordering]
-    doordash = "#"
+    doordash = "https://order.online/store/876434?pickup=true&redirected=true"
 
 [markup.goldmark.renderer]
   unsafe = true
