@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{/* Default single layout for bold section — pages override via layout front matter */}}
+  <section class="section section-light">
+    <div class="container section-narrow">
+      <h1 class="section-headline">{{ .Title }}</h1>
+      {{ .Content }}
+    </div>
+  </section>
+{{ end }}

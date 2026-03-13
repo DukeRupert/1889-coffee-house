@@ -1,0 +1,131 @@
+{{ define "main" }}
+
+{{/* ===== HERO (Split Panel) ===== */}}
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Helena, Montana &middot; Est. 1889</span>
+    <h1 class="hero-headline">Montana's<br>Coffee House.</h1>
+    <p class="hero-subhead">Family owned, veteran run, built from the ground up &mdash; right here on Prospect Ave.</p>
+    <div class="hero-cta">
+      <a href="/bold/menu/" class="btn btn-dark">See Our Menu</a>
+      <a href="#visit" class="btn btn-outline">Find Us</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-logo">
+      <img src="/images/logo.png" alt="1889 Coffee House" class="hero-logo-img" width="393" height="400" loading="lazy" decoding="async">
+    </div>
+    <div class="hero-hours-divider"></div>
+    <div class="hero-hours">
+      {{ .Site.Params.hours.weekday }}<br>
+      {{ .Site.Params.hours.saturday }}<br>
+      {{ .Site.Params.hours.sunday }}
+    </div>
+  </div>
+</section>
+
+{{/* ===== THE NAME / ORIGIN STORY (off-white) ===== */}}
+<section id="story" class="section section-story">
+  <div class="container section-narrow">
+    <span class="eyebrow eyebrow-dark">Established</span>
+    <h2 class="section-headline">Why 1889?</h2>
+    <p>Montana became a state on November 8, 1889. We think that's worth remembering.</p>
+    <p>1889 Coffee House was built by our family &mdash; from the ground up, on a site that used to be a gas station. Twenty months of work later, we opened our doors on Prospect Ave with one goal: to be the kind of place Helena actually needs. Somewhere to slow down, have a real conversation, and drink genuinely great coffee.</p>
+    <p class="story-closer">This is our place, and we'd like it to be yours too.</p>
+  </div>
+</section>
+
+{{/* ===== COFFEE (cranberry bg) ===== */}}
+<section id="coffee" class="section section-cranberry">
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col-media">
+        <img src="/images/latte-ghosttown.jpg" alt="Latte with latte art alongside Ghost Town Coffee Roasters 1889 Signature Blend bags" class="section-photo" width="600" height="800" loading="lazy" decoding="async">
+      </div>
+      <div class="two-col-body">
+        <span class="eyebrow">Sourced</span>
+        <h2 class="section-headline section-headline-light">Great Coffee Starts at the Source</h2>
+        <p>We source exclusively from Ghost Town Coffee Roasters in Bozeman, Montana &mdash; a specialty roaster that takes the bean-to-cup journey seriously.</p>
+        <p>Our espresso drinks are built on Ghost Town's Stonehouse Espresso blend. Drip coffee drinkers will find our house blend, the Signature "1889," waiting for them.</p>
+        <a href="/bold/menu/" class="text-cta">View the Menu &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ===== COLD BREW (full-bleed video) ===== */}}
+<section class="video-section">
+  <video class="video-section-bg" src="/images/nitro-brew.mp4" poster="/images/nitro-brew-poster.jpg" width="854" height="480" preload="metadata" autoplay loop muted playsinline aria-label="Nitro cold brew on tap at 1889 Coffee House"></video>
+  <div class="video-section-overlay"></div>
+  <div class="video-section-content container">
+    <span class="eyebrow">On Tap</span>
+    <h2 class="video-section-headline">Cold Brew<br>on Tap.</h2>
+    <p class="video-section-body">We steep ground coffee in cold water for an extended period of time, then store it in kegs until it's ready. Pull the tap handle and nitrogen meets cold brew through a stout faucet &mdash; delivering a cold, foamy pour unlike anything that comes out of a drip machine.</p>
+    <p class="video-section-closer">If you haven't tried it, you should.</p>
+  </div>
+</section>
+
+{{/* ===== FOOD (off-white) ===== */}}
+<section id="food" class="section section-light">
+  <div class="container">
+    <div class="two-col two-col-reverse">
+      <div class="two-col-media">
+        <img src="/images/pastry-coffee.jpg" alt="Fresh-baked cinnamon roll with cream cheese icing, served with a latte" class="section-photo" width="640" height="800" loading="lazy" decoding="async">
+      </div>
+      <div class="two-col-body">
+        <span class="eyebrow eyebrow-dark">Fresh</span>
+        <h2 class="section-headline">Made Fresh. Every Order.</h2>
+        <p>No freezer. Eggs cracked in-house. Sandwiches built on bread from Grateful Bread Bakery with Boar's Head meat sliced right here.</p>
+        <p>Breakfast sandwiches and burritos available all day. Club, hot pastrami, chicken bacon ranch, nacho grilled cheese for lunch. Soups and salads when you want something lighter. Cinnamon rolls, scones, and muffins — including gluten-free options baked in-house.</p>
+        <p class="food-tagline">Drive-thru if you're in a hurry. Come inside if you're not.</p>
+        <a href="/bold/menu/" class="text-cta">View the Menu &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ===== GATHER (cranberry bg) ===== */}}
+<section id="gather" class="section section-cranberry">
+  <div class="container section-narrow">
+    <span class="eyebrow">Community</span>
+    <h2 class="section-headline section-headline-light">More Than a Coffee Stop</h2>
+    <p>The upper loft looks out over Helena. The fireplace is on when it's cold. There's always something going on &mdash; open mics, art showcases, community events.</p>
+    <p>Come with your laptop, your friend, your book, or nothing at all. We'll have something ready for you.</p>
+  </div>
+</section>
+
+{{/* ===== VISIT (near-black) ===== */}}
+<section id="visit" class="section section-visit">
+  <div class="container">
+    <div class="visit-header">
+      <span class="eyebrow">Find Us</span>
+      <h2 class="section-headline section-headline-light">Come Find Us</h2>
+    </div>
+    <div class="visit-address">
+      <p class="visit-street">{{ .Site.Params.addressComponents.street }}</p>
+      <p class="visit-city">{{ .Site.Params.addressComponents.city }}, {{ .Site.Params.addressComponents.region }} {{ .Site.Params.addressComponents.postalCode }}</p>
+    </div>
+    <div class="visit-divider"></div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>Hours</h3>
+        <p>{{ .Site.Params.hours.weekday }}<br>
+        {{ .Site.Params.hours.saturday }}<br>
+        {{ .Site.Params.hours.sunday }}</p>
+      </div>
+      <div class="visit-card">
+        <h3>Options</h3>
+        <p>Dine in &middot; Drive-thru<br>Curbside pickup<br>Delivery via <a href="{{ .Site.Params.ordering.doordash }}" target="_blank" rel="noopener">DoorDash</a></p>
+      </div>
+      <div class="visit-card">
+        <h3>Call Ahead</h3>
+        <p><a href="tel:{{ replaceRE `[^+0-9]` "" .Site.Params.phone }}">{{ .Site.Params.phone }}</a></p>
+      </div>
+    </div>
+    <div class="visit-cta">
+      <a href="https://maps.google.com/?q={{ .Site.Params.address }}" class="btn btn-visit" target="_blank" rel="noopener">Get Directions <span class="sr-only">(opens in new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

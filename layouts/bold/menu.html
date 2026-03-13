@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<section class="section section-light menu-page">
+  <div class="container section-narrow">
+    <span class="eyebrow eyebrow-dark">Taste</span>
+    <h1 class="section-headline">Our Menu</h1>
+    <p class="menu-intro">Sandwiches made to order. Eggs cracked in-house. Coffee roasted by Ghost Town in Bozeman. No freezer, no shortcuts.</p>
+
+    <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+      <button class="menu-tab is-active" role="tab" id="tab-food" aria-selected="true" aria-controls="panel-food" tabindex="0">Food</button>
+      <button class="menu-tab" role="tab" id="tab-drinks" aria-selected="false" aria-controls="panel-drinks" tabindex="-1">Drinks</button>
+    </div>
+
+    <div class="menu-panel is-active" role="tabpanel" id="panel-food" aria-labelledby="tab-food">
+      <img src="/images/menu-1.jpg" alt="1889 Coffee House food menu — sandwiches, salads, soups, breakfast, and kids meals" class="menu-img" width="773" height="2000" loading="lazy" decoding="async">
+    </div>
+
+    <div class="menu-panel" role="tabpanel" id="panel-drinks" aria-labelledby="tab-drinks">
+      <img src="/images/menu-2.jpg" alt="1889 Coffee House drink menu — espresso, cold drinks, coffee, beverages, and sweet treats" class="menu-img" width="773" height="2000" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function() {
+  var tablist = document.querySelector('[role="tablist"]');
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+
+  function activateTab(tab) {
+    tabs.forEach(function(t) {
+      t.classList.remove('is-active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    document.querySelectorAll('[role="tabpanel"]').forEach(function(p) {
+      p.classList.remove('is-active');
+    });
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+    document.getElementById(tab.getAttribute('aria-controls')).classList.add('is-active');
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() { activateTab(tab); });
+  });
+
+  tablist.addEventListener('keydown', function(e) {
+    var index = tabs.indexOf(document.activeElement);
+    if (index < 0) return;
+    var next;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      next = tabs[(index + 1) % tabs.length];
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      next = tabs[(index - 1 + tabs.length) % tabs.length];
+    } else if (e.key === 'Home') {
+      next = tabs[0];
+    } else if (e.key === 'End') {
+      next = tabs[tabs.length - 1];
+    }
+    if (next) {
+      e.preventDefault();
+      activateTab(next);
+      next.focus();
+    }
+  });
+})();
+</script>
+{{ end }}
