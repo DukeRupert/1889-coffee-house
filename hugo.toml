@@ -1,0 +1,35 @@
+baseURL = "https://1889coffeehouse.com"
+languageCode = "en-us"
+title = "1889 Coffee House"
+enableRobotsTXT = true
+
+[params]
+  description = "Family owned, veteran run coffee house in Helena, Montana. Built from the ground up on Prospect Ave."
+  tagline = "Montana's Coffee House"
+  phone = "(406) 502-1889"
+  email = "info@1889coffeehouse.com"
+  address = "1800 Prospect Ave, Helena, MT 59601"
+  latitude = "46.5927"
+  longitude = "-112.0361"
+
+  [params.addressComponents]
+    street = "1800 Prospect Ave"
+    city = "Helena"
+    region = "MT"
+    postalCode = "59601"
+    country = "US"
+
+  [params.hours]
+    weekday = "Mon–Fri 6am–7pm"
+    saturday = "Sat 7am–7pm"
+    sunday = "Sun 8am–7pm"
+
+  [params.social]
+    facebook = "https://www.facebook.com/1889coffeehouse"
+    instagram = "https://www.instagram.com/1889coffeehouse"
+
+  [params.ordering]
+    doordash = "#"
+
+[markup.goldmark.renderer]
+  unsafe = true
