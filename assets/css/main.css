@@ -765,7 +765,7 @@ h1, h2, h3, h4 {
 }
 
 .footer-tagline {
-  color: var(--medium-roast);
+  color: var(--cream);
   font-size: 0.9rem;
   margin-top: var(--space-xs);
 }
@@ -812,9 +812,23 @@ h1, h2, h3, h4 {
   font-family: var(--font-ui);
   font-weight: 300;
   font-size: 0.8rem;
-  color: var(--medium-roast);
+  color: var(--cream);
   text-align: center;
   margin: 0;
+}
+
+.footer-credit {
+  margin-top: 0.4em !important;
+  letter-spacing: 0.03em;
+}
+
+.footer-credit a {
+  color: var(--honey) !important;
+  text-decoration: none;
+}
+
+.footer-credit a:hover {
+  color: var(--white) !important;
 }
 
 
