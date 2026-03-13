@@ -2,9 +2,7 @@
 
 {{/* ===== HERO ===== */}}
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="/images/exterior.jpg">
-    {{/* <source src="/video/hero.mp4" type="video/mp4"> */}}
-  </video>
+  <img src="/images/exterior.jpg" alt="" class="hero-bg" role="presentation" width="1200" height="798" fetchpriority="high">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
     <h1 class="hero-headline">Montana's Coffee House.</h1>
@@ -31,7 +29,7 @@
   <div class="container">
     <div class="two-col">
       <div class="two-col-media">
-        <img src="/images/latte-ghosttown.jpg" alt="Latte with latte art alongside Ghost Town Coffee Roasters 1889 Signature Blend bags" class="section-photo" loading="lazy">
+        <img src="/images/latte-ghosttown.jpg" alt="Latte with latte art alongside Ghost Town Coffee Roasters 1889 Signature Blend bags" class="section-photo" width="600" height="800" loading="lazy" decoding="async">
       </div>
       <div class="two-col-body">
         <span class="eyebrow">know.</span>
@@ -49,7 +47,7 @@
   <div class="container">
     <div class="two-col two-col-reverse">
       <div class="two-col-media">
-        <img src="/images/interior.webp" alt="1889 Coffee House interior — espresso bar, branded red wall, and loft staircase" class="section-photo" loading="lazy">
+        <img src="/images/interior.webp" alt="1889 Coffee House interior — espresso bar, branded red wall, and loft staircase" class="section-photo" width="680" height="510" loading="lazy" decoding="async">
       </div>
       <div class="two-col-body">
         <span class="eyebrow">pour.</span>
@@ -66,7 +64,7 @@
   <div class="container">
     <div class="two-col two-col-reverse">
       <div class="two-col-media">
-        <img src="/images/pastry-coffee.jpg" alt="Fresh-baked cinnamon roll with cream cheese icing, served with a latte" class="section-photo" loading="lazy">
+        <img src="/images/pastry-coffee.jpg" alt="Fresh-baked cinnamon roll with cream cheese icing, served with a latte" class="section-photo" width="640" height="800" loading="lazy" decoding="async">
       </div>
       <div class="two-col-body">
         <span class="eyebrow">fresh.</span>
@@ -119,7 +117,7 @@
       </div>
     </div>
     <div class="visit-cta">
-      <a href="https://maps.google.com/?q={{ .Site.Params.address }}" class="btn btn-primary btn-visit" target="_blank" rel="noopener">Get Directions</a>
+      <a href="https://maps.google.com/?q={{ .Site.Params.address }}" class="btn btn-primary btn-visit" target="_blank" rel="noopener">Get Directions <span class="sr-only">(opens in new tab)</span></a>
     </div>
   </div>
 </section>

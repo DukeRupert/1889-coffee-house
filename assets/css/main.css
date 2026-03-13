@@ -19,13 +19,14 @@
   --color-accent: var(--medium-roast);
   --color-bg: var(--white);
   --color-bg-dark: var(--espresso);
+  --espresso-dark: #1a0e09;
 
   /* Typography */
   --font-eyebrow: 'Sacramento', cursive;
-  --font-headline: 'Clarendon W01 Medium', 'Enriqueta', Georgia, serif;
+  --font-headline: 'Zilla Slab', 'Enriqueta', Georgia, serif;
   --font-body: 'Enriqueta', Georgia, serif;
-  --font-ui: 'DIN Next W01 Light', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-label: 'Avenir LT W01 85 Heavy', 'DIN Next W01 Light', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-label: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -66,6 +67,7 @@ a:hover { color: var(--espresso); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-headline);
+  font-weight: 500;
   line-height: 1.2;
   margin: 0 0 var(--space-sm);
 }
@@ -82,11 +84,28 @@ h1, h2, h3, h4 {
   z-index: 1000;
   border-radius: 0 0 4px 4px;
   font-family: var(--font-ui);
+  font-weight: 300;
   font-size: 14px;
 }
 
 .skip-link:focus {
   top: 0;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 :focus-visible {
@@ -100,7 +119,6 @@ h1, h2, h3, h4 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .hero-video { display: none; }
 }
 
 
@@ -161,6 +179,7 @@ h1, h2, h3, h4 {
 
 .primary-nav a {
   font-family: var(--font-label);
+  font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -208,13 +227,15 @@ h1, h2, h3, h4 {
 .btn {
   display: inline-block;
   font-family: var(--font-label);
+  font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.9em 2.2em;
+  border: none;
   border-radius: 3px;
-  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
   cursor: pointer;
 }
 
@@ -229,9 +250,15 @@ h1, h2, h3, h4 {
   box-shadow: 0 4px 16px rgba(45, 25, 16, 0.2);
 }
 
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(45, 25, 16, 0.15);
+}
+
 .text-cta {
   display: inline-block;
   font-family: var(--font-label);
+  font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -283,7 +310,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
-.hero-video {
+.hero-bg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -339,6 +366,11 @@ h1, h2, h3, h4 {
   color: var(--espresso);
 }
 
+.hero .btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 12px rgba(237, 175, 59, 0.25);
+}
+
 
 /* --- Story Section (Montana Sky eyebrow) --- */
 .section-story {
@@ -381,7 +413,6 @@ h1, h2, h3, h4 {
 
 .section-photo {
   width: 100%;
-  border-radius: 0;
   object-fit: cover;
   aspect-ratio: 4/3;
   transition: transform 0.5s ease;
@@ -399,8 +430,6 @@ h1, h2, h3, h4 {
   margin-bottom: var(--space-md);
   font-size: 1.1rem;
 }
-
-
 
 /* --- Gather Section (text-only) --- */
 .section-gather {
@@ -449,6 +478,7 @@ h1, h2, h3, h4 {
 
 .visit-city {
   font-family: var(--font-ui);
+  font-weight: 300;
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   color: var(--cream);
   letter-spacing: 0.1em;
@@ -478,6 +508,7 @@ h1, h2, h3, h4 {
 
 .visit-card h3 {
   font-family: var(--font-label);
+  font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -521,6 +552,11 @@ h1, h2, h3, h4 {
   box-shadow: 0 8px 32px rgba(237, 175, 59, 0.35);
 }
 
+.btn-visit:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 16px rgba(237, 175, 59, 0.25);
+}
+
 
 /* --- Coffee Page --- */
 .coffee-hero {
@@ -553,6 +589,7 @@ h1, h2, h3, h4 {
 
 .blend-notes {
   font-family: var(--font-ui);
+  font-weight: 300;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   color: var(--medium-roast);
@@ -637,6 +674,7 @@ h1, h2, h3, h4 {
 
 .menu-tab {
   font-family: var(--font-label);
+  font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -672,14 +710,14 @@ h1, h2, h3, h4 {
   max-width: 600px;
   margin: 0 auto;
   display: block;
-  border-radius: 6px;
+  border-radius: var(--img-radius);
   box-shadow: 0 4px 24px rgba(45, 25, 16, 0.12);
 }
 
 
 /* --- Footer --- */
 .site-footer {
-  background: #1a0e09;
+  background: var(--espresso-dark);
   color: var(--cream);
   padding: var(--space-lg) 0 0;
 }
@@ -742,6 +780,7 @@ h1, h2, h3, h4 {
 
 .footer-bottom p {
   font-family: var(--font-ui);
+  font-weight: 300;
   font-size: 0.8rem;
   color: var(--medium-roast);
   text-align: center;
@@ -817,4 +856,96 @@ h1, h2, h3, h4 {
 
 @media (max-width: 480px) {
   .footer-inner { grid-template-columns: 1fr; }
+}
+
+
+/* --- Print --- */
+@media print {
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .site-header,
+  .nav-toggle,
+  .skip-link,
+  .hero-cta,
+  .visit-cta,
+  .coffee-cta,
+  .text-cta,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .hero-bg,
+  .hero-overlay {
+    display: none;
+  }
+
+  .hero-content {
+    position: static;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-headline,
+  .hero-subhead {
+    color: #000 !important;
+  }
+
+  .section {
+    padding: 1.5rem 0;
+    page-break-inside: avoid;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .two-col-media { display: none; }
+
+  .section-visit {
+    border-top: 2px solid #000;
+  }
+
+  .visit-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .footer-brand { display: none; }
+
+  .footer-bottom { border-top: 1px solid #000; }
+
+  a[href^="tel:"]::after {
+    content: none;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+
+  .menu-panel { display: block !important; }
+  .menu-tabs { display: none; }
+  .menu-img { max-width: 100%; box-shadow: none; }
 }

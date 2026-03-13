@@ -16,17 +16,75 @@
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Params.description | default .Site.Params.description }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/exterior.jpg">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="{{ .Site.Title }}">
 
+  <meta name="theme-color" content="#2d1910">
+
+  <link rel="icon" href="/images/logo.png" type="image/png">
   <link rel="canonical" href="{{ .Permalink }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Enriqueta:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Montserrat:wght@300;700&family=Sacramento&family=Zilla+Slab:wght@500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Montserrat:wght@300;700&family=Sacramento&family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"></noscript>
 
-  {{ $styles := resources.Get "css/main.css" | minify }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "{{ .Site.Title }}",
+    "description": "{{ .Site.Params.description }}",
+    "url": "{{ .Site.BaseURL }}",
+    "telephone": "{{ .Site.Params.phone }}",
+    "email": "{{ .Site.Params.email }}",
+    "image": "{{ .Site.BaseURL }}images/exterior.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ .Site.Params.addressComponents.street }}",
+      "addressLocality": "{{ .Site.Params.addressComponents.city }}",
+      "addressRegion": "{{ .Site.Params.addressComponents.region }}",
+      "postalCode": "{{ .Site.Params.addressComponents.postalCode }}",
+      "addressCountry": "{{ .Site.Params.addressComponents.country }}"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": {{ .Site.Params.latitude }},
+      "longitude": {{ .Site.Params.longitude }}
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "06:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "08:00",
+        "closes": "19:00"
+      }
+    ],
+    "sameAs": [
+      "{{ .Site.Params.social.facebook }}",
+      "{{ .Site.Params.social.instagram }}"
+    ],
+    "priceRange": "$",
+    "servesCuisine": ["Coffee", "Sandwiches", "Breakfast"],
+    "hasMenu": "{{ .Site.BaseURL }}menu/"
+  }
+  </script>
 
   {{ block "head" . }}{{ end }}
 </head>
