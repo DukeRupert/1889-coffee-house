@@ -20,15 +20,17 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="{{ .Site.Title }}">
 
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#2d1910">
 
   <link rel="icon" href="/images/logo.png" type="image/png">
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <link rel="preload" href="/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Montserrat:wght@300;700&family=Sacramento&family=Zilla+Slab:wght@500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Montserrat:wght@300;700&family=Sacramento&family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"></noscript>
 
-  {{ $styles := resources.Get "css/bold.css" | minify | fingerprint }}
+  {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 
   <script type="application/ld+json">
@@ -80,7 +82,7 @@
     ],
     "priceRange": "$",
     "servesCuisine": ["Coffee", "Sandwiches", "Breakfast"],
-    "hasMenu": "{{ .Site.BaseURL }}menu/"
+    "hasMenu": "{{ .Site.BaseURL }}warm/menu/"
   }
   </script>
 
@@ -89,11 +91,11 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  {{ partial "bold/header.html" . }}
+  {{ partial "warm/header.html" . }}
   <main id="main-content" tabindex="-1">
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "bold/footer.html" . }}
+  {{ partial "warm/footer.html" . }}
   <script>
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries) => {
@@ -102,7 +104,6 @@
     document.querySelectorAll('.section-photo').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.section-photo').forEach(el => el.classList.add('is-visible'));
-    document.querySelectorAll('video[autoplay]').forEach(v => { v.pause(); v.removeAttribute('autoplay'); });
   }
   </script>
   {{ block "scripts" . }}{{ end }}
