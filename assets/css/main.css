@@ -494,6 +494,79 @@ h1, h2, h3, h4 {
 }
 
 
+/* --- Coffee Page --- */
+.coffee-hero {
+  background: var(--white);
+  padding-bottom: var(--space-md);
+}
+
+.coffee-lead {
+  color: var(--dark-roast);
+  font-size: 1.15rem;
+  max-width: var(--narrow-width);
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.blend-card {
+  margin-bottom: var(--space-md);
+}
+
+.blend-card:last-child {
+  margin-bottom: 0;
+}
+
+.blend-name {
+  font-family: var(--font-headline);
+  font-size: 1.2rem;
+  color: var(--espresso);
+  margin-bottom: 0.3em;
+}
+
+.blend-notes {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--medium-roast);
+  margin-bottom: 0.5em;
+}
+
+.coffee-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.drinks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.drink-card {
+  text-align: center;
+}
+
+.drink-name {
+  font-family: var(--font-headline);
+  font-size: 1.1rem;
+  color: var(--espresso);
+  margin-bottom: 0.4em;
+}
+
+.drink-card p {
+  color: var(--dark-roast);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.coffee-cta {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+
 /* --- About Page --- */
 .section-about-hero {
   background: var(--white);
@@ -701,6 +774,7 @@ h1, h2, h3, h4 {
   .two-col-reverse .two-col-body { order: 0; }
 
   .visit-grid { grid-template-columns: 1fr; }
+  .drinks-grid { grid-template-columns: 1fr; }
   .visit-street { font-size: clamp(1.4rem, 6vw, 2rem); }
 
   .footer-inner {
