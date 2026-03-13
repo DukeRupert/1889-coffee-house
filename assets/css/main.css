@@ -419,41 +419,57 @@ h1, h2, h3, h4 {
 .section-visit {
   background: var(--espresso);
   color: var(--white);
+  padding: var(--space-xl) 0 calc(var(--space-xl) + 3rem);
+  border-top: 3px solid var(--honey);
 }
 
 .visit-header {
   text-align: center;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.visit-header .section-headline {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin-bottom: 0;
 }
 
 .visit-address {
   text-align: center;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .visit-street {
   font-family: var(--font-headline);
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(2rem, 5vw, 3.4rem);
   color: var(--white);
-  margin: 0 0 0.2em;
-  letter-spacing: -0.01em;
+  margin: 0 0 0.15em;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .visit-city {
   font-family: var(--font-ui);
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
   color: var(--cream);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0;
 }
 
+.visit-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--honey);
+  margin: 0 auto var(--space-lg);
+  opacity: 0.7;
+}
+
 .visit-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
-  margin: 0 auto var(--space-md);
-  max-width: 640px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin: 0 auto var(--space-lg);
+  max-width: 800px;
 }
 
 .visit-card {
@@ -462,35 +478,47 @@ h1, h2, h3, h4 {
 
 .visit-card h3 {
   font-family: var(--font-label);
-  font-size: 11px;
-  letter-spacing: 0.15em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--honey);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0.8em;
 }
 
 .visit-card p {
   color: var(--cream);
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
+}
+
+.visit-card a {
+  color: var(--cream);
+  text-decoration: none;
+  font-family: var(--font-headline);
+  font-size: 1.15rem;
+}
+
+.visit-card a:hover {
+  color: var(--honey);
 }
 
 .visit-cta {
   text-align: center;
-  margin-top: var(--space-md);
+  margin-top: 0;
 }
 
 .btn-visit {
-  font-size: 14px;
-  padding: 1.1em 3em;
+  font-size: 15px;
+  padding: 1.2em 3.5em;
   background: var(--honey);
   color: var(--espresso);
+  letter-spacing: 0.12em;
 }
 
 .btn-visit:hover {
   background: var(--white);
   color: var(--espresso);
-  box-shadow: 0 6px 24px rgba(237, 175, 59, 0.3);
+  box-shadow: 0 8px 32px rgba(237, 175, 59, 0.35);
 }
 
 
@@ -773,9 +801,10 @@ h1, h2, h3, h4 {
 
   .two-col-reverse .two-col-body { order: 0; }
 
-  .visit-grid { grid-template-columns: 1fr; }
+  .visit-grid { grid-template-columns: 1fr; gap: var(--space-md); }
   .drinks-grid { grid-template-columns: 1fr; }
-  .visit-street { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .visit-street { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  .visit-header .section-headline { font-size: clamp(1.6rem, 6vw, 2.4rem); }
 
   .footer-inner {
     grid-template-columns: 1fr 1fr;

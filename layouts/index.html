@@ -101,6 +101,7 @@
       <p class="visit-street">{{ .Site.Params.addressComponents.street }}</p>
       <p class="visit-city">{{ .Site.Params.addressComponents.city }}, {{ .Site.Params.addressComponents.region }} {{ .Site.Params.addressComponents.postalCode }}</p>
     </div>
+    <div class="visit-divider"></div>
     <div class="visit-grid">
       <div class="visit-card">
         <h3>Hours</h3>
@@ -111,6 +112,10 @@
       <div class="visit-card">
         <h3>Options</h3>
         <p>Dine in &middot; Drive-thru<br>Curbside pickup<br>Delivery via DoorDash</p>
+      </div>
+      <div class="visit-card">
+        <h3>Call Ahead</h3>
+        <p><a href="tel:{{ replaceRE `[^+0-9]` "" .Site.Params.phone }}">{{ .Site.Params.phone }}</a></p>
       </div>
     </div>
     <div class="visit-cta">
