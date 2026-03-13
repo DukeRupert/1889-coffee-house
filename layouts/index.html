@@ -1,7 +1,11 @@
 {{ define "main" }}
 
 {{/* ===== HERO ===== */}}
-<section class="hero" style="background-image: url('/images/hero-bg.jpg');">
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="/images/exterior.jpg">
+    {{/* <source src="/video/hero.mp4" type="video/mp4"> */}}
+  </video>
+  <div class="hero-overlay"></div>
   <div class="container hero-content">
     <h1 class="hero-headline">Montana's Coffee House.</h1>
     <p class="hero-subhead">Family owned, veteran run, built from the ground up &mdash; right here on Prospect Ave. Come for the coffee. Stay for everything else.</p>
@@ -27,7 +31,7 @@
   <div class="container">
     <div class="two-col">
       <div class="two-col-media">
-        <img src="/images/latte-ghosttown.jpg" alt="Latte with latte art alongside Ghost Town Coffee Roasters 1889 Signature Blend bags" class="section-photo">
+        <img src="/images/latte-ghosttown.jpg" alt="Latte with latte art alongside Ghost Town Coffee Roasters 1889 Signature Blend bags" class="section-photo" loading="lazy">
       </div>
       <div class="two-col-body">
         <span class="eyebrow">know.</span>
@@ -40,15 +44,15 @@
   </div>
 </section>
 
-{{/* ===== NITRO COLD BREW — the one warm accent ===== */}}
-<section class="section section-nitro">
+{{/* ===== NITRO COLD BREW ===== */}}
+<section class="section">
   <div class="container">
     <div class="two-col two-col-reverse">
       <div class="two-col-media">
-        <img src="/images/stock-1.jpg" alt="Roasted coffee beans spilling from a white cup on a wooden surface" class="section-photo">
+        <img src="/images/interior.webp" alt="1889 Coffee House interior — espresso bar, branded red wall, and loft staircase" class="section-photo" loading="lazy">
       </div>
       <div class="two-col-body">
-        <span class="eyebrow eyebrow-dark">pour.</span>
+        <span class="eyebrow">pour.</span>
         <h2 class="section-headline">Cold Brew on Tap</h2>
         <p>We steep ground coffee in cold water for an extended period of time, then store it in kegs until it's ready. Pull the tap handle and nitrogen meets cold brew through a stout faucet &mdash; delivering a cold, foamy pour unlike anything that comes out of a drip machine.</p>
         <p class="text-accent">If you haven't tried it, you should.</p>
@@ -62,7 +66,7 @@
   <div class="container">
     <div class="two-col two-col-reverse">
       <div class="two-col-media">
-        <img src="/images/pastry-coffee.jpg" alt="Fresh-baked cinnamon roll with cream cheese icing, served with a latte" class="section-photo">
+        <img src="/images/pastry-coffee.jpg" alt="Fresh-baked cinnamon roll with cream cheese icing, served with a latte" class="section-photo" loading="lazy">
       </div>
       <div class="two-col-body">
         <span class="eyebrow">fresh.</span>
@@ -77,33 +81,27 @@
 </section>
 
 {{/* ===== GATHER ===== */}}
-<section id="gather" class="section">
-  <div class="container">
-    <div class="two-col">
-      <div class="two-col-media">
-        <img src="/images/hero-mug.jpg" alt="1889 Coffee House branded mug with Montana blue sky" class="section-photo">
-      </div>
-      <div class="two-col-body">
-        <span class="eyebrow">gather.</span>
-        <h2 class="section-headline">More Than a Coffee Stop</h2>
-        <p>The upper loft looks out over Helena. The fireplace is on when it's cold. There's always something going on &mdash; open mics, art showcases, community events.</p>
-        <p>Come with your laptop, your friend, your book, or nothing at all. We'll have something ready for you.</p>
-      </div>
-    </div>
+<section id="gather" class="section section-gather">
+  <div class="container section-narrow">
+    <span class="eyebrow eyebrow-dark">gather.</span>
+    <h2 class="section-headline">More Than a Coffee Stop</h2>
+    <p>The upper loft looks out over Helena. The fireplace is on when it's cold. There's always something going on &mdash; open mics, art showcases, community events.</p>
+    <p>Come with your laptop, your friend, your book, or nothing at all. We'll have something ready for you.</p>
   </div>
 </section>
 
 {{/* ===== VISIT — the one dark moment ===== */}}
 <section id="visit" class="section section-visit">
-  <div class="container section-narrow">
-    <span class="eyebrow eyebrow-gold">mornings.</span>
-    <h2 class="section-headline section-headline-light">Come Find Us</h2>
+  <div class="container">
+    <div class="visit-header">
+      <span class="eyebrow eyebrow-gold">mornings.</span>
+      <h2 class="section-headline section-headline-light">Come Find Us</h2>
+    </div>
+    <div class="visit-address">
+      <p class="visit-street">{{ .Site.Params.addressComponents.street }}</p>
+      <p class="visit-city">{{ .Site.Params.addressComponents.city }}, {{ .Site.Params.addressComponents.region }} {{ .Site.Params.addressComponents.postalCode }}</p>
+    </div>
     <div class="visit-grid">
-      <div class="visit-card">
-        <h3>Address</h3>
-        <p>{{ .Site.Params.addressComponents.street }}<br>
-        {{ .Site.Params.addressComponents.city }}, {{ .Site.Params.addressComponents.region }} {{ .Site.Params.addressComponents.postalCode }}</p>
-      </div>
       <div class="visit-card">
         <h3>Hours</h3>
         <p>{{ .Site.Params.hours.weekday }}<br>
@@ -116,8 +114,7 @@
       </div>
     </div>
     <div class="visit-cta">
-      <a href="https://maps.google.com/?q={{ .Site.Params.address }}" class="btn btn-secondary-light" target="_blank" rel="noopener">Get Directions</a>
-      <a href="#" class="btn btn-secondary-light">Order Online</a>
+      <a href="https://maps.google.com/?q={{ .Site.Params.address }}" class="btn btn-primary btn-visit" target="_blank" rel="noopener">Get Directions</a>
     </div>
   </div>
 </section>
